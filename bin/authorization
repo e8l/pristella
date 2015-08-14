@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+
+import os.path as path
+import sys
+sys.path.append(path.abspath(path.join(path.dirname(__file__), "..")))
+from pristella.config_loader import ConfigLoader
+from pristella.twitter import Twitter
+
+if __name__ == "__main__":
+
+  loader = ConfigLoader("../config/settings.json")
+  keys = loader.load()
+
+  twitter = Twitter(keys)
+
+  (access_token, access_token_secret) = twitter.authorize()
+
+  assert access_token is not None
+  assert access_token_secret is not None
+
+  keys["access_token"] = access_token
+  keys["access_token_secret"] = access_token_secret
+
+  loader.save()

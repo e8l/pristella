@@ -1,0 +1,9 @@
+{
+  "consumer_key": "put your consumer_key",
+  "consumer_secret": "put your consumer_secret",
+  "routine_cycle": 15,
+  "module": "pristella.twitter_app",
+  "app_class": "TwitterApp",
+  "webcam_command": "fswebcam -r 1280x960 --jpeg 90",
+  "photo_path": "/run/shm/webcam/temp.jpg"
+}

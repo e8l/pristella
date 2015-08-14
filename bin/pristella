@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+
+import os.path as path
+import sys
+sys.path.append(path.abspath(path.join(path.dirname(__file__), "..")))
+import pristella.pristella_daemon
+
+try:
+    sys.exit(pristella.pristella_daemon.main())
+except KeyboardInterrupt:
+    sys.exit(1)
